@@ -84,8 +84,11 @@ class SQLiteStorage(BaseStorage):
 
     async def close(self):
         if self.__connected_to_database:
-            await self.__connection.close()
             await self.__cursor.close()
+            await self.__connection.close()
+
+            self.__cursor = None
+            self.__connection = None
 
 
     async def __execute(self, query: str, values: tuple = None, commit: bool = False):
