@@ -1,2 +1,3 @@
 dist/
 sqlitestorage.egg-info/
+.DS_Store
